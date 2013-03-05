@@ -21,6 +21,8 @@ Makefile
 
 # KDevelop
 *.kdev4
+build
 
 # Python
 *.pyc
+__pycache__
