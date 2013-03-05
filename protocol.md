@@ -13,45 +13,45 @@ In this mode, the client sends it entire data store to the server. This is usual
 
 The following is an example of a complete dataset of two objects with type "Person" and two fields. The third object, with id of 3, has been deleted by the client. 
 
-  [
-    {
-      "_meta": {
-        "className": "Person",
-        "id" : 1
-        "createdAt": "2013-05-03-16-05",
-        "deletedAt": ""
+    [
+      {
+        "_meta": {
+          "className": "Person",
+          "id" : 1
+          "createdAt": "2013-05-03-16-05",
+          "deletedAt": ""
+        },
+        "name": {
+          value: "John Smith",
+          timestamp: "2013-05-03-16-05"
+        },
+        "age": {
+          value: 42,
+          timestamp: "2013-05-03-18-16"
+        }
       },
-      "name": {
-        value: "John Smith",
-        timestamp: "2013-05-03-16-05"
+      {
+        "_meta": {
+          "className": "Person",
+          "id": 2
+          "createdAt": "2013-05-03-18-08",
+        },
+        "name": {
+          value: "Jane Smith",
+          timestamp: "2013-05-03-19-48"
+        },
+        "age": {
+          value: 42,
+          timestamp: "2013-05-03-19-48"
+        }
       },
-      "age": {
-        value: 42,
-        timestamp: "2013-05-03-18-16"
+      {
+        "_meta": {
+          "className": "Person",
+          "id": 3
+          "deletedAt": "2013-03-04-12-24"
+        }
       }
-    },
-    {
-      "_meta": {
-        "className": "Person",
-        "id": 2
-        "createdAt": "2013-05-03-18-08",
-      },
-      "name": {
-        value: "Jane Smith",
-        timestamp: "2013-05-03-19-48"
-      },
-      "age": {
-        value: 42,
-        timestamp: "2013-05-03-19-48"
-      }
-    },
-    {
-      "_meta": {
-        "className": "Person",
-        "id": 3
-        "deletedAt": "2013-03-04-12-24"
-      }
-    }
-  ]
+    ]
 
 ## Transaction log
