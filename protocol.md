@@ -18,31 +18,31 @@ The following is an example of a complete dataset of two objects with type "Pers
         "_meta": {
           "className": "Person",
           "id" : 1
-          "createdAt": "2013-05-03-16-05",
+          "createdAt": "2013-03-05-16-05",
           "deletedAt": ""
         },
         "name": {
           value: "John Smith",
-          timestamp: "2013-05-03-16-05"
+          timestamp: "2013-03-05-16-05"
         },
         "age": {
           value: 42,
-          timestamp: "2013-05-03-18-16"
+          timestamp: "2013-03-05-18-16"
         }
       },
       {
         "_meta": {
           "className": "Person",
           "id": 2
-          "createdAt": "2013-05-03-18-08",
+          "createdAt": "2013-03-05-18-08",
         },
         "name": {
           value: "Jane Smith",
-          timestamp: "2013-05-03-19-48"
+          timestamp: "2013-03-05-19-48"
         },
         "age": {
-          value: 42,
-          timestamp: "2013-05-03-19-48"
+          value: 39,
+          timestamp: "2013-03-05-19-48"
         }
       },
       {
@@ -55,3 +55,33 @@ The following is an example of a complete dataset of two objects with type "Pers
     ]
 
 ## Transaction log
+
+For any non-trivial data set, it is usually more efficient to only send the modification log instead of the entire data. In this case, the client transmits a list of change objects. 
+
+The following example shows a set of changes the describe a creation of a Person object, an update that changes some of its properties, and its deletion. 
+
+    [
+      {
+        "object": 4,
+        "className": "Person"
+        "action": "create",
+        "properties": [
+          "age": 39
+          "name": "John Doe"
+        ],
+        "timestamp": "2013-03-05-20-04"
+      },
+      {
+        "object": 4,
+        "action": "update",
+        "properties": [
+          "age": 40
+        ],
+        "timestamp": "2013-03-05-21-11"
+      },
+      {
+        "object": 4,
+        "action": "delete",
+        "timestamp": "2013-03-05-22-00"
+      }
+    ]
